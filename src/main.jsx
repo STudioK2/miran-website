@@ -2,20 +2,58 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
+const languages = ["pl","en","de","cz","it"];
+
+const t = {
+  pl: { title: "Miran — strona działa", subtitle: "Routing SPA włączony. Treści i widget rezerwacji do podmiany.", cta: "Rezerwuj", bookingUrl: "https://booking.example.com/obiekt/miran" },
+  en: { title: "Miran — site online", subtitle: "SPA routing enabled. Replace copy and booking widget.", cta: "Book now", bookingUrl: "https://booking.example.com/obiekt/miran" },
+  de: { title: "Miran — Seite online", subtitle: "SPA-Routing aktiv. Inhalte und Buchungs-Widget ersetzen.", cta: "Jetzt buchen", bookingUrl: "https://booking.example.com/obiekt/miran" },
+  cz: { title: "Miran — web běží", subtitle: "SPA routing zapnut. Vyměňte texty a rezervační widget.", cta: "Rezervovat", bookingUrl: "https://booking.example.com/obiekt/miran" },
+  it: { title: "Miran — sito attivo", subtitle: "Routing SPA attivo. Sostituisci testi e widget di prenotazione.", cta: "Prenota", bookingUrl: "https://booking.example.com/obiekt/miran" },
+};
+
+function getLang() {
+  const seg = window.location.pathname.replace(/^\/+/, "").split("/")[0];
+  return languages.includes(seg) ? seg : "pl";
+}
+
 function App() {
+  const lang = getLang();
+  const copy = t[lang];
+
+  function goto(l) {
+    const path = l === "pl" ? "/" : `/${l}`;
+    window.history.pushState({}, "", path);
+    root.render(<App />);
+  }
+
   return (
-    <main style={{padding:"24px", maxWidth:960, margin:"0 auto"}}>
-      <h1>Miran — strona działa</h1>
-      <p>Routing SPA włączony. Treści i widget rezerwacji do podmiany.</p>
-      <nav style={{marginTop:16, display:"flex", gap:12}}>
-        <a href="/pl">PL</a>
-        <a href="/en">EN</a>
-        <a href="/de">DE</a>
-        <a href="/cz">CZ</a>
-        <a href="/it">IT</a>
+    <div className="container">
+      <nav className="nav">
+        {languages.map((l) => (
+          <a key={l} href={l === "pl" ? "/" : `/${l}`}
+             onClick={(e)=>{e.preventDefault(); goto(l);}}
+             className={l===lang ? "active" : undefined}>
+            {l.toUpperCase()}
+          </a>
+        ))}
       </nav>
-    </main>
+
+      <section className="hero">
+        <h1>{copy.title}</h1>
+        <p>{copy.subtitle}</p>
+        <a className="cta" href={copy.bookingUrl} target="_blank" rel="noreferrer">
+          {copy.cta}
+        </a>
+      </section>
+
+      <div className="footer">
+        <p>Miran Pirovac • camping • hotel • restauracja • plaża • Chorwacja</p>
+      </div>
+    </div>
   );
 }
 
-createRoot(document.getElementById("root")).render(<App />);
+const root = createRoot(document.getElementById("root"));
+root.render(<App />);
+window.addEventListener("popstate", () => root.render(<App />));
