@@ -213,6 +213,56 @@ function Section({ id, title, children }) {
     </section>
   );
 }
+// === PROSTA GALERIA ===
+const IMAGES = [
+  "hero_pool.jpg",
+  "aerial_grounds.jpg",
+  "beach_sunbeds.jpg",
+  "bungalows_exterior.jpg",
+  "camp_pitches.jpg",
+  "facebook_beach_01.jpg",
+  "facebook_pool_01.jpg",
+  "facebook_pier_01.jpg",
+  "instagram_beach_bar.jpg",
+  "mobile_home_terrace.jpg",
+  "pool_sunset.jpg",
+  "promo_earlybird.jpg",
+  "restaurant_deck.jpg",
+  "room_double.jpg",
+  "video_cover.jpg",
+  "waterfront_pier.jpg",
+];
+
+function Gallery() {
+  return (
+    <section className="hero" style={{ paddingTop: 24, paddingBottom: 24 }}>
+      {/* duże zdjęcie na start */}
+      <img
+        src="/images/hero_pool.jpg"
+        alt="Basen i plaża"
+        style={{ width: "100%", borderRadius: 12, marginBottom: 16 }}
+      />
+      {/* siatka miniaturek */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))",
+          gap: 12,
+        }}
+      >
+        {IMAGES.map((name) => (
+          <img
+            key={name}
+            src={`/images/${name}`}
+            alt={name.replace(/[_-]/g, " ").replace(".jpg", "")}
+            style={{ width: "100%", borderRadius: 8, aspectRatio: "16 / 9", objectFit: "cover" }}
+            loading="lazy"
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function App() {
   const [lang, setLang] = React.useState(getLang());
