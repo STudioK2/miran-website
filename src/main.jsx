@@ -195,13 +195,12 @@ function LangSwitch({ lang, onChange }) {
         <a
           key={l}
           href={l === "pl" ? "/" : `/${l}`}
-          onClick={(e) => {
-            e.preventDefault();
-            onChange(l);
-          }}
+          onClick={(e) => { e.preventDefault(); onChange(l); }}
           className={l === lang ? "active" : undefined}
+          title={FLAG_LABEL[l]}
+          aria-label={FLAG_LABEL[l]}
         >
-          {l.toUpperCase()}
+          <span style={{fontSize:20, lineHeight:1}}>{FLAG[l]}</span>
         </a>
       ))}
     </nav>
