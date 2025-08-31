@@ -268,8 +268,8 @@ function App() {
   const [lang, setLang] = React.useState(getLang());
   const c = t[lang];
 
-  const phone = "+385-000-000"; // USTAW
-  const email = "info@miran.example"; // USTAW
+  const phone = "+385-000-000";
+  const email = "info@miran.example";
   const maps = "https://maps.google.com/?q=Obala+Kneza+Domagoja+12+Pirovac";
 
   function changeLang(l) {
@@ -295,32 +295,19 @@ function App() {
         ))}
       </ul>
 
+      {/* TU DODAJ GALERIĘ */}
+      <Gallery />
+
       <Section id="stay" title={c.stay.title}>
         <p>{c.stay.p1}</p>
-        {/* Obrazki opcjonalne – wrzuć pliki do public/images i odkomentuj */}
-        {/* <img src="/images/room.jpg" alt="Pokój" style={{maxWidth:'100%',borderRadius:12}}/> */}
       </Section>
 
       <Section id="dining" title={c.dining.title}>
         <p>{c.dining.p1}</p>
-        {/* <img src="/images/restaurant.jpg" alt="Restauracja" style={{maxWidth:'100%',borderRadius:12}}/> */}
       </Section>
 
       <Section id="contact" title={c.contact.title}>
-        <p>{c.contact.address}</p>
-        <p>
-          {c.contact.phoneLabel}: <a href={`tel:${phone}`}>{phone}</a>
-          {" · "}
-          {c.contact.emailLabel}: <a href={`mailto:${email}`}>{email}</a>
-        </p>
-        <p>
-          <a className="cta" href={BOOKING_URL} target="_blank" rel="noreferrer">
-            {c.labels.book}
-          </a>{" "}
-          <a href={maps} target="_blank" rel="noreferrer" style={{ marginLeft: 12 }}>
-            {c.contact.map}
-          </a>
-        </p>
+        {/* ... */}
       </Section>
 
       <footer className="footer">
