@@ -298,7 +298,12 @@ function App() {
       </ul>
 
       {/* TU DODAJ GALERIĘ */}
-      <Gallery />
+      const IMAGES = [
+  "hero_pool.jpg","aerial_grounds.jpg","beach_sunbeds.jpg","bungalows_exterior.jpg",
+  "camp_pitches.jpg","facebook_beach_01.jpg","facebook_pool_01.jpg","facebook_pier_01.jpg",
+  "instagram_beach_bar.jpg","mobile_home_terrace.jpg","pool_sunset.jpg","promo_earlybird.jpg",
+  "restaurant_deck.jpg","room_double.jpg","video_cover.jpg","waterfront_pier.jpg",
+];
 
       <Section id="stay" title={c.stay.title}>
         <p>{c.stay.p1}</p>
