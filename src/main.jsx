@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 /* USTAW: docelowy link do rezerwacji */
-const BOOKING_URL = "https://booking.example.com/miran";
+const BOOKING_URL = "https://app.business.booking.com/xapp/de/stay/details/21036?adultCount=1&aid=318615&aid_label=Polish_Croatia_PL_HR_29394677785-I0*khktTcUISY53rdnyZ6AS217291386223%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi55328758804%3Atidsa-325360801114%3Alp9197245%3Ali%3Adec%3Adm&checkinDate=2025-09-01&checkoutDate=2025-09-02&destinationId=-91928&destinationType=city&guestAccountCountryCode=PL&guestCurrency=PLN&label=zenodeeplinkpp&roomCount=1&searchLocation=Pirovac";
 
 const languages = ["pl", "en", "de", "cz", "it"];
 
