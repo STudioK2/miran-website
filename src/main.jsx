@@ -185,6 +185,9 @@ function pushLang(l) {
 }
 
 /* komponenty */
+const FLAG = { pl:"🇵🇱", en:"🇬🇧", de:"🇩🇪", cz:"🇨🇿", it:"🇮🇹" };
+const FLAG_LABEL = { pl:"Polski", en:"English", de:"Deutsch", cz:"Čeština", it:"Italiano" };
+
 function LangSwitch({ lang, onChange }) {
   return (
     <nav className="nav" aria-label="Language">
