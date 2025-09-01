@@ -216,7 +216,7 @@ function Section({ id, title, children }) {
   );
 }
 // === PROSTA GALERIA ===
-const IMAGES = [
+
   "hero_pool.jpg",
   "aerial_grounds.jpg",
   "beach_sunbeds.jpg",
